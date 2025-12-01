@@ -1,18 +1,114 @@
+/* فونت وزیر */
 @font-face {
   font-family: "Vazir";
   src: url("../fonts/Vazir.eot");
-  /* IE9 Compat Modes */
   src: url("../fonts/Vazir.eot?#iefix") format("embedded-opentype"),
     url("../fonts/Vazir.woff2") format("woff2"),
     url("../fonts/Vazir.woff") format("woff"),
     url("../fonts/Vazir.ttf") format("truetype");
-  /* Safari, Android, iOS */
 }
 
-body {
+/* بدنه اصلی */
+body.weather-body {
+  font-family: "Vazir", sans-serif;
   direction: rtl;
-  text-align: right !important;
-  font-family: "Vazir";
-  line-height: 1.6;
-  background: #23272B;
+  text-align: right;
+  background: linear-gradient(135deg, #6aaaff, #a7d0ff);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s ease;
+}
+
+/* حالت تاریک */
+body.dark-mode {
+  background: linear-gradient(135deg, #1f1f1f, #3a3a3a);
+  color: #f1f1f1;
+}
+
+/* کارت شیشه‌ای مدرن */
+.weather-card {
+  border-radius: 25px;
+  padding: 25px 20px;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+  transition: 0.3s ease;
+}
+
+body.dark-mode .weather-card {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* آیکون با انیمیشن شناور */
+.weather-icon-container {
+  display: flex;
+  justify-content: center;
+}
+
+.weather-icon {
+  width: 90px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+/* لیست هواشناسی */
+.list-group-item {
+  background: transparent !important;
+  border: none !important;
+  padding: 8px 0 !important;
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* دکمه شیشه‌ای */
+.btn-glass {
+  border-radius: 12px;
+  padding: 8px 20px;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  border: none;
+  transition: 0.3s ease;
+}
+
+.btn-glass:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* مودال */
+.modal-content {
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+/* واکنش‌گرا موبایل */
+@media (max-width: 576px) {
+  .weather-card {
+    padding: 20px 15px;
+  }
+
+  .weather-icon {
+    width: 70px;
+  }
+
+  .list-group-item {
+    font-size: 0.9rem;
+  }
 }
